@@ -1,0 +1,22 @@
+name: EESCP
+
+services:
+-  name: EESCP Frontend PROD
+   url: https://webgate.acceptance.ec.europa.eu/erasmus-esc
+   interval: 30
+
+-  name: EESCP Frontend ACC
+   url: https://webgate.acceptance.ec.europa.eu/erasmus-esc
+   method: GET
+   interval: 300
+   maxTimeout: 30
+   expectedHttpCodeResult: 200
+
+-  name: ORS Simple Search ACC
+   url: https://webgate.acceptance.ec.europa.eu/eac-ors/ors/simpleSearch
+   headers:
+     Content-Type: 'application/json'
+   method: POST
+   body: '{ "filter": "test" }'
+   maxTimeout: 60
+   expectedHttpCodeResult: 200
